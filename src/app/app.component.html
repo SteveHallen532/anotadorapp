@@ -1,4 +1,4 @@
-<div class="container" style="width: 70%;">
+<div class="container">
   <div class="row" style="padding-top: 50px;padding-bottom: 20px;">
     <div class="col-3">
       Jugadores
@@ -23,18 +23,18 @@
     <table class="table table-striped ">
       <thead>
         <tr>
-            <th style="width: 25%" scope="col">Jugador</th>
-            <th style="width: 25%" scope="col">Puntaje</th>
-            <th style="width: 25%" scope="col">Puntos</th>                    
-            <th style="width: 25%" scope="col">Acciones</th> 
+            <th style="width: 30%" scope="col">Jugador</th>
+            <th style="width: 15%" scope="col">Puntaje</th>
+            <th style="width: 10%" scope="col">Puntos</th>                    
+            <th style="width: 45%" scope="col">Acciones</th> 
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let jugador of jugadores">                     
             <td>{{jugador.nombre}}</td>
             <td>{{jugador.puntos}}</td>
-            <td>
-                <input type="number" [(ngModel)]="jugador.puntosToAdd" (keyup.enter)="calcular(jugador)">
+            <td >
+                <input style="max-width: 100px;" type="number" [(ngModel)]="jugador.puntosToAdd" (keyup.enter)="calcular(jugador)">
             </td>
             <td>
                 <button class="btn btn-info btn-sm" (click)="calcular(jugador)" style="margin-right: 10px;">Calcular</button>
