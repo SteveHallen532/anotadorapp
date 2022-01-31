@@ -1,19 +1,26 @@
 <div class="container">
+
+  <div class="row">
+    <div class="col-12 titulo">
+        ANOTADOR
+    </div>
+  </div>
+
   <div class="row" style="padding-top: 50px;padding-bottom: 20px;">
-    <div class="col-3">
+    <div class="col-3" style="font-weight: bold;">
       Jugadores
     </div>
     <div class="col-5">
-      <input type="text" [(ngModel)]="newJugador" (keyup.enter)="agregarJugador()" >
+      <input style="max-width: 150px;" type="text" [(ngModel)]="newJugador" (keyup.enter)="agregarJugador()" >
     </div>
-    <div class="col-2">
-      <button class="btn btn-info btn-sm"  (click)=agregarJugador()>
-        Agregar
+    <div class="col-2" style="padding-left: 30px;">
+      <button class="btn btn-primary btn-sm"  (click)=agregarJugador()>
+        <span class="fas fa-plus fa-lg" aria-hidden="true"></span>
       </button>
     </div>
-    <div class="col-2">
-      <button class="btn btn-info btn-sm"  (click)=resetear()>
-        Resetear
+    <div class="col-2" style="align-items: left;">
+      <button class="btn btn-danger btn-sm"  (click)=resetear()>
+        <span class="fas fa-redo fa-lg" aria-hidden="true"></span>
       </button>
     </div>
     
@@ -33,12 +40,18 @@
         <tr *ngFor="let jugador of jugadores">                     
             <td>{{jugador.nombre}}</td>
             <td>{{jugador.puntos}}</td>
-            <td >
-                <input style="max-width: 100px;" type="number" [(ngModel)]="jugador.puntosToAdd" (keyup.enter)="calcular(jugador)">
+            <td>
+                <input style="max-width: 80px;" type="number" [(ngModel)]="jugador.puntosToAdd" (keyup.enter)="calcular(jugador)">
             </td>
             <td>
-                <button class="btn btn-info btn-sm" (click)="calcular(jugador)" style="margin-right: 10px;">Calcular</button>
-                <button class="btn btn-info btn-sm" (click)="eliminarJugador(jugador)">Eliminar</button>
+              <div class="row">
+                <button class="btn btn-info btn-sm" (click)="calcular(jugador)" style="margin-right: 10px;">
+                  <span class="fas fa-plus fa-lg" aria-hidden="true"></span>
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="eliminarJugador(jugador)">
+                  <span class="fas fa-trash fa-lg" aria-hidden="true"></span>
+                </button>
+              </div>
             </td>
         </tr>                                        
       </tbody>
