@@ -75,22 +75,23 @@ export class AppComponent implements OnInit {
   }
 
   agregarJugador(){
-
-    var jugadorExistente = this.jugadores.filter(j=>j.nombre+""==this.newJugador+"");
-    if(!(jugadorExistente.length>0)){
-      var newJugador= new Jugador(Math.random(),this.newJugador);
-      this.jugadores.push(newJugador);
-      this.newJugador="";
-      localStorage.setItem("Data",JSON.stringify(this.jugadores));
+    if(this.newJugador!=''){
+      var jugadorExistente = this.jugadores.filter(j=>j.nombre+""==this.newJugador+"");
+      if(!(jugadorExistente.length>0)){
+        var newJugador= new Jugador(Math.random(),this.newJugador);
+        this.jugadores.push(newJugador);
+        this.newJugador="";
+        localStorage.setItem("Data",JSON.stringify(this.jugadores));
+      }
+      else{
+        Swal.fire(
+          'Jugador Existente',
+          '',
+          'error'
+        )
+      }
     }
-    else{
-      Swal.fire(
-        'Jugador Existente',
-        '',
-        'error'
-      )
-    }
-
+   
   }
 
   calcular(jugador:Jugador){

@@ -11,7 +11,7 @@
       Jugadores
     </div>
     <div class="col-5">
-      <input style="max-width: 150px;" type="text" [(ngModel)]="newJugador" (keyup.enter)="agregarJugador()" >
+      <input placeholder="Ingrese un nombre" style="max-width: 150px;" type="text" [(ngModel)]="newJugador" (keyup.enter)="agregarJugador()" >
     </div>
     <div class="col-2" style="padding-left: 30px;">
       <button class="btn btn-primary btn-sm"  (click)=agregarJugador()>
